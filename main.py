@@ -9,7 +9,10 @@ file_path = 'tasks.json'
 Function for saving current data to JSON file.
 '''
 def writeData(data, nextId):
+    # save the next ID for next Task Tracker CLI instance
     data['nextId'] = nextId
+
+    # save data to JSON file
     with open(file_path, 'w') as file:
         json.dump(data, file, indent=4)
 
@@ -19,9 +22,11 @@ Function in charge of handling the JSON file opening or
 creation if no file exists.
 '''
 def handleJson():
+    # default data for ID creation
     data = {
         'nextId' : 0
     }
+
     # JSON File Handling
     try:
         with open(file_path, 'r') as file:
@@ -50,23 +55,29 @@ def main():
     # Task Tracker Logic
     run = True
     while run:
+        # gather input
         text = shlex.split(input('task-cli '))
+
         size = len(text)
 
+        # preprocess for queries that require ID
         if size > 1:
             id = text[1]
 
+        # extract Next ID from last saved data
         if 'nextId' in data:
             nextId = data['nextId']
             del data['nextId']
         
-        
+        # gather time of current query
         current_time = datetime.now()
         formatted_time = current_time.strftime("%d-%m-%Y %H:%M")
 
         ############################
         # Task Add, Update, Delete #
         ############################
+
+        # add new item
         if text[0] == 'add':
             if size == 2:
                 data[str(nextId)] = {
@@ -82,6 +93,7 @@ def main():
             else:
                 print('Please input data to add.')
 
+        # update specified item description and time
         elif text[0] == 'update':
             if size == 3:
                 if id not in data:
@@ -91,7 +103,7 @@ def main():
                     data[id]['updatedAt'] = formatted_time
             
 
-
+        # delete specified item
         elif text[0] == 'delete':
             if size == 2:
                 if id not in data:
@@ -102,6 +114,8 @@ def main():
         ################
         # Task Marking #
         ################
+        
+        # change specified item status to in-progress
         elif text[0] == 'mark-in-progress':
             if size == 2:
                 if id not in data:
@@ -109,6 +123,7 @@ def main():
                 else:
                     data[id]['status'] = 'in-progress'
 
+        # change specified item status to done
         elif text[0] == 'mark-done':
             if size == 2:
                 if id not in data:
@@ -119,8 +134,10 @@ def main():
         ################
         # Task Listing #
         ################
+        
         elif text[0] == 'list':
             count = 0
+
             # List all tasks
             if size == 1:
                 for id, value in data.items():
