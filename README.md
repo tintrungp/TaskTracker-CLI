@@ -2,6 +2,21 @@
 ## Overview
 Task Tracker is a project used to track and manage your tasks. It is a simple command line interface (CLI) that tracks what you need to do, what you have done, and what you are currently working on. 
 
+## Getting Started
+
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+1. Clone the repo
+```sh
+git clone https://github.com/tintrungp/TaskTracker-CLI.git
+```
+
+2. Run the program
+```sh
+python3 main.py 
+```
+
 ## How to Use It
 The Task Tracker has 5 main features that are available to the user:
 
@@ -103,3 +118,4 @@ This is a small project. There are hopes for it to be extended into it's own win
 
 
 [Link to the project](https://roadmap.sh/projects/task-tracker)
+[Link to the my solution entry](https://roadmap.sh/projects/task-tracker/solutions?u=677dc6bc70129741a81de8d9)
