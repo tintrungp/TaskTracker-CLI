@@ -116,6 +116,11 @@ All data will be saved in JSON format under the name `tasks.json`. If this file 
 # Conclusion
 This is a small project. There are hopes for it to be extended into it's own window gui project with the use of the [Pysimplegui library](https://docs.pysimplegui.com/en/latest/). It's not much, but it's the start of something cool for me.
 
+A future roadmap might look like the following...
+- [ ] Add Changelog
+- [ ] Add GUI interface
+- [ ] Extend functionality
+
 
 [Link to the project](https://roadmap.sh/projects/task-tracker)
 [Link to the my solution entry](https://roadmap.sh/projects/task-tracker/solutions?u=677dc6bc70129741a81de8d9)
